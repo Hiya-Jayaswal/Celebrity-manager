@@ -1,4 +1,7 @@
-Celebrity Manager App
+                                                                                                **Celebrity Manager App**
+                                                                                                    by Hiya Jayaswal
+
+
 The Celebrity Manager App is a React-based web application designed to manage a list of celebrities. It provides functionalities for viewing, editing, and deleting celebrity profiles. Each celebrity profile includes details such as name, age, gender, country, and a description.
 
 Features:
