@@ -1,42 +1,35 @@
-You are a famous hacker who has access to a list of the world's most famous celebrities.
-You have to create a system where you can view and edit their details to hide their public presence.
+Celebrity Manager App
+The Celebrity Manager App is a React-based web application designed to manage a list of celebrities. It provides functionalities for viewing, editing, and deleting celebrity profiles. Each celebrity profile includes details such as name, age, gender, country, and a description.
 
-Your mission if you choose to accept it, you have to:
+Features
+-View Celebrities: Browse through a list of celebrities with their basic information displayed.
+-Edit Celebrity: Modify a celebrity's details including age, gender, country, and description.
+-Delete Celebrity: Remove a celebrity from the list, with confirmation to prevent accidental deletion.
+-Search: Use a search bar to filter celebrities based on their names.
+Technologies Used
+#React: Frontend framework for building user interfaces.
+#Material-UI: Component library for React to ensure a responsive and aesthetic UI design.
+#TypeScript: Provides type safety and enhances code readability.
+#JSON Data: Sample data stored in a JSON format to simulate a backend integration.
 
-1. Create the user interface provided with the design provided
+USER INTERFACE:
+![image](https://github.com/Hiya-Jayaswal/FE-ASSESSMENT/assets/121180156/704f3bf9-9244-4bb9-a1df-8bda8e424986)
 
-2. The page should have a search bar to search the list by celebrity name.
+OPEN STATE:
+![image](https://github.com/Hiya-Jayaswal/FE-ASSESSMENT/assets/121180156/f3a743f2-bb3a-4602-aa40-3b5751255f55)
 
-3. The user list item is an accordion,
+CLOSED STATE:
+![image](https://github.com/Hiya-Jayaswal/FE-ASSESSMENT/assets/121180156/9ac1cc51-31af-4f8f-8344-6ee4a4ef55d8)
 
-   - when clicked on, it will cause all the other accordions to collapse and enlarge the one which was clicked.
-   - If clicked on the same one it will collapse.
-   - Manage the + and - icons in open or collapsed mode (collapsed = - | open = +)
+SEARCH FUNCTIONALITY:
+![image](https://github.com/Hiya-Jayaswal/FE-ASSESSMENT/assets/121180156/65f49947-b5b2-4ffe-b880-6f06b74512ec)
 
-4. Fetch the JSON file provided to fill the list of users. (NOTE - YOU CANNOT EDIT THE JSON FILE)
+DELETE AND EDIT FUNCTIONALITY:
+![image](https://github.com/Hiya-Jayaswal/FE-ASSESSMENT/assets/121180156/87f196ec-6c0a-41b7-a8fa-33b7e36cd541)
 
-   - You have to calculate the age of the user based on the date of birth provided
-   - gender should be a dropdown (Male | Female | Transgender | Rather not say | Other)
-   - country is a text field
-   - Description is a text area
 
-5. Provide buttons to edit or delete
 
-   - edit mode will let you edit the details of the user in the exact place
-   - you can only edit the user if the user is an adult
-   - validations to be implemented where a user cannot
-     -- input text in the age field
-     -- input numbers in the nationality
-     -- keep anything empty
-   - when in edit mode you can either save or cancel
-     -- save button will be disabled by default and will enable only if the details have changed
-     -- save click will update the user's details
-     -- cancel will revert the details to their last known state
-     -- you cannot open another accordion while in edit mode
-   - delete mode should alert you if you actually want to delete the user
-     -- if yes - the user will be deleted
-     -- if no - do nothing
 
-6. Typescript is a plus
 
-This message will self destruct in 5... 4... 3... 2... 1... NOT
+
+
