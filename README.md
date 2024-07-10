@@ -12,6 +12,7 @@ Features:
 -Search: Use a search bar to filter celebrities based on their names.
 
 Technologies Used:
+
 #React: Frontend framework for building user interfaces.
 
 #Material-UI: Component library for React to ensure a responsive and aesthetic UI design.
