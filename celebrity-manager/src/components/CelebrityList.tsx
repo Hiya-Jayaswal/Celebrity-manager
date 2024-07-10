@@ -1,6 +1,21 @@
 // src/components/CelebrityList.tsx
 import React, { useState } from 'react';
 import { Celebrity } from '../types/celebrity';
+import {
+  IconButton,
+  Typography,
+  Avatar,
+  Grid,
+  TextField,
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 interface CelebrityListProps {
   celebrities: Celebrity[];
@@ -11,16 +26,45 @@ const CelebrityItem: React.FC<{ celebrity: Celebrity }> = ({ celebrity }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [editedCelebrity, setEditedCelebrity] = useState(celebrity);
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
+
+const handleToggle = () => {
+  setIsOpen(!isOpen);
+};
+
+const handleEdit = () => {
+  setIsEditing(true);
+};
+
+const handleSave = () => {
+
+  setIsEditing(false);
+};
+
+const handleCancel = () => {
+  setEditedCelebrity(celebrity);
+  setIsEditing(false);
+};
+
+const handleDelete = () => {
+  setIsDeleteDialogOpen(true);
+};
+
+const handleConfirmDelete = () => {
+ 
+  setIsDeleteDialogOpen(false);
+};
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const { name, value } = e.target;
+  setEditedCelebrity((prev) => ({ ...prev, [name]: value }));
+};
 
   return (
     <div className={`celebrity-item ${isOpen ? 'open' : ''}`}>
       <div className="celebrity-header" onClick={() => setIsOpen(!isOpen)}>
         <img src={celebrity.picture} alt="" />
         <h2 className="celebrity-name">{celebrity.first} {celebrity.last}</h2>
-        <span className="dropdown-icon">{isOpen ? '▲' : '▼'}</span>
+        <span className="dropdown-icon">{isOpen ? '' : '▼'}</span>
       </div>
       <div className="celebrity-details">
         <div className="celebrity-content">
@@ -42,11 +86,63 @@ const CelebrityItem: React.FC<{ celebrity: Celebrity }> = ({ celebrity }) => {
            <p><strong>Description:</strong><br/>{celebrity.description}</p>
           </div>
           <div className = "button">
-            <button className='btn1'>🖋</button>
-            <button className='btn2'>🗑️</button>
+            <button className='btn1' onClick={handleEdit}>🖋</button>
+            <button className='btn2' onClick={handleDelete}>🗑️</button>
           </div>
         </div>
       </div>
+      {isEditing && (
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Age"
+                  name="age"
+                  value={editedCelebrity.dob}
+                  onChange={handleChange}
+                />
+                <TextField
+                  fullWidth
+                  label="Gender"
+                  name="gender"
+                  value={editedCelebrity.gender}
+                  onChange={handleChange}
+                />
+                <TextField
+                  fullWidth
+                  label="Country"
+                  name="country"
+                  value={editedCelebrity.country}
+                  onChange={handleChange}
+                />
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={4}
+                  label="Description"
+                  name="description"
+                  value={editedCelebrity.description}
+                  onChange={handleChange}
+                />
+                <Button onClick={handleCancel} color="secondary">
+                  Cancel
+                </Button>
+                <Button onClick={handleSave} color="primary">
+                  Save
+                </Button>
+              </Grid>
+            )}
+    <Dialog open={isDeleteDialogOpen} onClose={() => setIsDeleteDialogOpen(false)}>
+        <DialogTitle>Are you sure you want to delete?</DialogTitle>
+        <DialogContent>
+          <Typography>This action cannot be undone.</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setIsDeleteDialogOpen(false)}>Cancel</Button>
+          <Button onClick={handleConfirmDelete} color="error">
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };
